@@ -20,7 +20,24 @@ namespace API.Repositories
 
 		public RepositoryResponse Add(CustomerDTO dto)
 		{
-			
+			try
+			{
+				_dbContext.Customers.Add(new Customer(dto));
+				_dbContext.SaveChanges();
+				return new RepositoryResponse
+				{
+					StatusCode = HttpStatusCode.OK,
+					Message = $"Record inserted"
+				};
+			}
+			catch (Exception ex)
+			{
+				return new RepositoryResponse
+				{
+					StatusCode = HttpStatusCode.InternalServerError,
+					Message = ex.Message
+				};
+			}
 
 
 		}
