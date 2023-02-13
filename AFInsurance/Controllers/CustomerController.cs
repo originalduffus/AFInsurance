@@ -11,12 +11,10 @@ namespace AFInsurance.Controllers
 	[Route("[controller]")]
 	public class CustomerController : ControllerBase
 	{
-		private readonly ILogger<CustomerController> _logger;
 		private readonly ICustomerRepository _customerRepository;
 
-		public CustomerController(ILogger<CustomerController> logger, ICustomerRepository customerRepository )
+		public CustomerController(ICustomerRepository customerRepository )
 		{
-			_logger = logger;
 			_customerRepository = customerRepository;
 		}
 
