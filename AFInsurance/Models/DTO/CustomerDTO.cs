@@ -94,7 +94,7 @@ namespace AFInsurance.Models
 
 			if (string.IsNullOrEmpty(EmailAddress) == false)
 			{
-				if (Regex.IsMatch(PolicyReferenceNumber, @"^[a-zA-Z][a-zA-Z0-9]{4,}@[a-zA-Z][a-zA-Z0-9]{2,}(.com|.co.uk)$") == false)
+				if (Regex.IsMatch(EmailAddress, @"^([\w\.\-]+){4,}@([\w\-]+){2,}\.(com|co\.uk)$") == false)
 				{
 					results.Add(new ValidationResult("Email address is in the wrong format"));
 				}
